@@ -99,8 +99,8 @@ public class User {
         return enabled;
     }
 
-    public void setEnables(boolean enables) {
-        this.enabled = enables;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getProfile() {
