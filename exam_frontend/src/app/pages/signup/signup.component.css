@@ -1,0 +1,8 @@
+.full-width{
+    width: 100%;
+}
+
+.register-btn {
+    --mdc-protected-button-container-color : green;
+    --mdc-protected-button-label-text-color: #fff;
+}
