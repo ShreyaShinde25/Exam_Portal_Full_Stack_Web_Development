@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit{
       //success
       console.log(data);
       // alert('Success!');
-      Swal.fire("Success","User ("+ data.id +") is successfully registered!","success");
+      Swal.fire("Success",data.firstName +" is successfully registered!","success");
 
     },
     //error

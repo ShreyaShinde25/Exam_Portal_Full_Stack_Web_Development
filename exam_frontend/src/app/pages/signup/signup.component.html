@@ -4,6 +4,8 @@
         <div class="row" style="margin-top:20px ;">
 
             <div class="col-md-6 offset-md-3">
+              <mat-card >
+                <mat-card-content>
                 <div class="text-center">
                     <img src="../../../assets/logo.png" alt="" style="width:100px; height:100px;">
 
@@ -47,16 +49,18 @@
                       <!-- Phone number -->
                       <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Phone number</mat-label>
-                        <input required [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="Enter here">
+                        <input required [(ngModel)]="user.phone" name="phone"  matInput placeholder="Enter here">
                       </mat-form-field>
 
                       <div class="container">
-                        <button type="submit" mat-raised-button class="register-btn" >Register</button>
-                        <button mat-raised-button style="margin-left: 20px;" color="primary">Clear</button>
+                        <button type="submit" mat-raised-button class="register-btn " >Register</button>
+                        <button mat-raised-button class="ml20" color="primary">Clear</button>
 
                       </div>
 
                 </form>
+              </mat-card-content>
+              </mat-card>
             </div>
         </div>
 

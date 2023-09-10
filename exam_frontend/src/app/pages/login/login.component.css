@@ -1,0 +1,11 @@
+.full-width{
+    width: 100%;
+}
+.login-btn {
+    --mdc-protected-button-container-color : green;
+    --mdc-protected-button-label-text-color: #fff;
+}
+
+.mat-card{
+    background-color:lightgray;
+  }
