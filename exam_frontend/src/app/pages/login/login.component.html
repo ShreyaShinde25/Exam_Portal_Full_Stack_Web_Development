@@ -9,11 +9,11 @@
                     <img src="../../../assets/logo.png" alt="" style="width:100px; height:100px;"  >
                 </div> 
                 <h1 class="text-center">Login</h1>
-                <form action="">
+                <form (ngSubmit)="formSubmit()">
                     <!--username field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input required matInput placeholder="Enter here">
+                        <input [(ngModel)]="loginData.username" name="username" required matInput placeholder="Enter here">
                         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                         <mat-hint>Valid username</mat-hint>
                       </mat-form-field>
@@ -21,7 +21,7 @@
                       <!-- password field -->
                       <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input required type="password" matInput placeholder="Enter here">
+                        <input [(ngModel)]="loginData.password" name="password" type="password" matInput placeholder="Enter here">
                       </mat-form-field>
 
                       <div class="container text-center">
