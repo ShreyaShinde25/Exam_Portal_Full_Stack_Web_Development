@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,9 +16,10 @@ export class LoginComponent implements OnInit {
     password:''
    }
 
-  constructor(private snack:MatSnackBar, private login:LoginService){}
+  constructor(private snack:MatSnackBar, private login:LoginService, private router:Router){}
   ngOnInit(): void {
   }
+
 
   formSubmit(){
     console.log('login button clicked');
@@ -28,23 +31,56 @@ export class LoginComponent implements OnInit {
     if(this.loginData.password.trim()=='' || this.loginData.password==null){
       this.snack.open('Password is required!','',{duration:3000,});
       return;
-    }
+    } 
+    const self = this;
+
 
     //request to server to generate token
     this.login.generateToken(this.loginData).subscribe({
       next(data:any){
         //success
         console.log("success");
-        console.log(data);
+        console.log(data);   
+        self.login.loginUser(data.token);     
+
+        self.login.getCurrentUser().subscribe({
+          next(user:any){
+            self.login.setUser(user);
+            console.log(user);
+            //redirect .. ADMIN: admin dashboard
+            //redirect.. NORMAL:normal-dashboard
+            if(self.login.getUserRole()=="ADMIN"){
+              //admin dashboard
+              // window.location.href='/admin'
+              self.router.navigate(['admin'])
+            }
+            else if(self.login.getUserRole()=="NORMAL"){
+              //Normal user dashboard
+              // window.location.href='/user-dashboard'
+              self.router.navigate(['user-dashboard'])
+            }
+            else{
+             self.login.logout();
+
+            }
+          }
+        });
+     
       },
+      
       //error
       error(err){
         console.log('Error!');
         console.log(err); 
+        self.snack.open("Invalid details! Please Try again",'',{duration:3000,})
       }
 
-    })
-     
+    }
+    
+    );
+    
+
+        
 
 
     

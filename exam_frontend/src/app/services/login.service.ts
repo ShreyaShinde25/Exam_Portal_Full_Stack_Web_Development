@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './helper';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,11 @@ import baseUrl from './helper';
 export class LoginService {
 
   constructor(private http:HttpClient) { }
-
+   
+  // current user: which is logged in 
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}/current-user`);
+  }
   //generate token
 
   public generateToken(loginData:any){

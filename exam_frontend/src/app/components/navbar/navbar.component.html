@@ -4,11 +4,27 @@
     </a>
     <span>QuizMate</span>
     <span class="example-spacer"></span>
-    <a [routerLink]="'/login'"mat-button class="example-icon favorite-icon mdc-icon-button" aria-label="Example icon-button with heart icon">
+    <a  *ngIf="!login.isLoggedIn()"
+    [routerLink]="'/login'"mat-button class="example-icon favorite-icon mdc-icon-button" aria-label="Example icon-button with heart icon">
         Login
     </a>
-    <a [routerLink]="'/signup'" mat-button class="example-icon favorite-icon mdc-icon-button mr30 ml20" aria-label="Example icon-button with heart icon">
+    <a *ngIf="!login.isLoggedIn()"
+     [routerLink]="'/signup'" mat-button class="example-icon favorite-icon mdc-icon-button mr30 ml20" aria-label="Example icon-button with heart icon">
         Register
     </a>
+    <a 
+    *ngIf="login.isLoggedIn()"
+    mat-button class="example-icon favorite-icon mdc-icon-button mr30 ml20" aria-label="Example icon-button with heart icon">
+       {{login.getUser().username}}
+   </a>
+
+
+    <a (click)="logout()"
+    *ngIf="login.isLoggedIn()"
+    mat-button class="example-icon favorite-icon mdc-icon-button mr30 ml20" aria-label="Example icon-button with heart icon">
+       Logout
+   </a>
+
+    
   </mat-toolbar>
   
