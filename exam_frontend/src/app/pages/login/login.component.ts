@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             if(self.login.getUserRole()=="ADMIN"){
               //admin dashboard
               // window.location.href='/admin'
-              self.router.navigate(['admin'])
+              self.router.navigate(['admin']);
             }
             else if(self.login.getUserRole()=="NORMAL"){
               //Normal user dashboard
