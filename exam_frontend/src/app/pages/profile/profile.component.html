@@ -1,1 +1,59 @@
-<p>profile works!</p>
+<mat-card *ngIf="user">
+    <mat-card-header>
+    <h1> My Profile</h1>
+</mat-card-header>
+    <mat-card-content>
+       <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="container text-center">
+                <img class="profile-image" src="https://static.thenounproject.com/png/5034901-200.png" alt="">
+                <h1 class="mt20" style="font-family:Georgia, 'Times New Roman', Times, serif; text-transform: uppercase;">{{user.firstName}} {{user.lastName}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <!-- table details -->
+                    <table class="table text-center" >
+                        <tr>
+                            <td class="tbdata">Username</td>
+                            <td class="tbinfo">{{user.username}}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tbdata">Email address</td>
+                            <td class="tbinfo">{{user.email}}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tbdata">User Id</td>
+                            <td class="tbinfo">Exam{{user.id}}</td>
+                        </tr> 
+
+                        <tr>
+                            <td class="tbdata">Phone Number</td>
+                            <td class="tbinfo">{{user.phone}}</td>
+                        </tr> 
+
+                        <tr>
+                            <td class="tbdata">Role</td>
+                            <td class="tbinfo">{{user.authorities[0].authority}}</td>
+                        </tr> 
+
+                        <tr>
+                            <td class="tbdata">Status</td>
+                            <td class="tbinfo">{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+                        </tr> 
+
+                    </table>
+                </div>
+            </div>
+        </div>
+       </div>
+
+     </mat-card-content>
+    
+     <mat-card-actions class="mat-mdc-card-actions">
+        <button mat-raised-button color="primary" class="mr10">UPDATE</button>
+        <button mat-raised-button color="primary">SHARE</button>
+     </mat-card-actions>
+    
+</mat-card>
