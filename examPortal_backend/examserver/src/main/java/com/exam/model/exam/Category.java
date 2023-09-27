@@ -24,6 +24,10 @@ public class Category{
         this.description=description;
     }
 
+    public Category(){
+
+    }
+
     public Long getCid() {
         return cid;
     }
