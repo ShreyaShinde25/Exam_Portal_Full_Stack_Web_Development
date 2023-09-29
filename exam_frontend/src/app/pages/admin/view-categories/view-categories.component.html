@@ -1,0 +1,34 @@
+<!-- <mat-card>
+    <mat-list>
+        <div mat-subheader>All Categories</div>
+        <mat-list-item *ngFor="let c of categories">
+            <mat-icon mat-list-item >folder</mat-icon>
+            <div mat-list-item>{{ c.title }}</div>
+            <div mat-list-item>{{ c.description }}</div>
+            <mat-divider style="color: brown;"></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</mat-card> -->
+<div style="padding-top: 20px;">
+<mat-card>
+    <mat-card-header>
+        <h1> All Categories</h1>
+    </mat-card-header>
+<mat-grid-list cols="3" rowHeight="100px" >
+    
+    <mat-grid-tile
+        *ngFor="let c of categories"
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="color">
+        <mat-icon class="mr10">category</mat-icon>
+        {{c.title}}
+        <br>
+    {{c.description}}
+    
+</mat-grid-tile>
+
+  </mat-grid-list> 
+</mat-card>
+</div>
+  <div class="container text-center mt20"><button mat-raised-button color="primary" routerLink="/admin/add-category">Add New Category</button></div>
