@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./view-categories.component.css']
 })
 export class ViewCategoriesComponent implements OnInit {
-  color= "lightblue";
+  color= "skyblue";
   
   categories=[
     {

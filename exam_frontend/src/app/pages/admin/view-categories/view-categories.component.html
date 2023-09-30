@@ -9,19 +9,18 @@
         </mat-list-item>
     </mat-list>
 </mat-card> -->
-<div style="padding-top: 20px;">
-<mat-card>
+<div style="padding-top: 20px;" >
+<mat-card >
     <mat-card-header>
         <h1> All Categories</h1>
     </mat-card-header>
-<mat-grid-list cols="3" rowHeight="100px" >
+<mat-grid-list class="ml20 mr20 mb20 mt20" cols="2" rowHeight="80px" [gutterSize]="'10px'"  >
     
-    <mat-grid-tile
+    <mat-grid-tile style="text-align: center;"
         *ngFor="let c of categories"
-        [colspan]="1"
-        [rowspan]="1"
+         
         [style.background]="color">
-        <mat-icon class="mr10">category</mat-icon>
+        <mat-icon class="mr10 ml10">category</mat-icon>
         {{c.title}}
         <br>
     {{c.description}}

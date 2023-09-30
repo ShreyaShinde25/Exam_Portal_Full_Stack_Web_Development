@@ -29,6 +29,10 @@ import {MatTableModule} from '@angular/material/table';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -48,6 +52,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoryComponent,
+    ViewQuizzesComponent,
+    AddQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatIconModule,
     MatListModule,
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
