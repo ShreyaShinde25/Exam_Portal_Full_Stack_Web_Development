@@ -15,7 +15,7 @@ public class Category{
 
 
     //relationship between Quiz and Category (1 category can have many quizzes)
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL) //Quiz table me category column hoga which will be mapped by category variable
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) //Quiz table me category column hoga which will be mapped by category variable
     @JsonIgnore
     private Set<Quiz> quizzes= new LinkedHashSet<>();
 

@@ -14,9 +14,10 @@
     <button mat-stroked-button color="primary" class="ml20">Max Marks: {{q.maxMarks}}</button>
     <button mat-stroked-button color="primary" class="ml20">Questions: {{q.numberOfQuestions}}</button>
     <button mat-stroked-button color="primary" class="ml20">Attempts</button>
-
-    <button mat-flat-button color="primary" class="ml20">Update</button>
-
+    <button mat-flat-button color="primary" class="ml20 mr20">Update</button>
+    <button mat-mini-fab style="margin-left: auto;"  (click)="deleteQuiz(q.qId)" color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button>
 </mat-card-actions>
 
 </mat-card>
