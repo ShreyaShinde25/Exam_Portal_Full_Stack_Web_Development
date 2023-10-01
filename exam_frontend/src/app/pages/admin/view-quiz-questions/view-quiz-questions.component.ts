@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-quiz-questions.component.css']
 })
 export class ViewQuizQuestionsComponent implements OnInit{
-  
   qId=0;
   qTitle="";
   questions:any=[];

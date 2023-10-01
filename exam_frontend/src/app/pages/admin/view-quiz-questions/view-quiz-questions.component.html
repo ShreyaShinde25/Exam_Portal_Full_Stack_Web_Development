@@ -13,8 +13,8 @@
             </div>
             <mat-card *ngFor="let q of questions; let i=index" class="mt20">
                 <mat-card-content>
-                 <p><b>Q{{i+1}}.</b><span class="ml10" [innerHTML]="q.content"></span>
-                 </p>
+                 <div><b>Q{{i+1}}.</b><span class="ml10" [innerHTML]="q.content"></span>
+                 </div>
 
                  <div class="container-fluid">
                     <div class="row">
@@ -42,7 +42,7 @@
 
                 <mat-card-actions>
                     <button mat-stroked-button (click)="deleteQuestion(q.quesId)" class="ml10 mr10" color="accent">Delete</button>
-                    <button mat-stroked-button class="ml10 mr10" color="primary">Update</button>
+                    <button mat-stroked-button class="ml10 mr10" color="primary" [routerLink]="'/admin/question/'+ q.quesId+'/' +qTitle">Update</button>
                 </mat-card-actions>
             </mat-card>
         </div>

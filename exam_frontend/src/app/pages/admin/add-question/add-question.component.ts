@@ -9,7 +9,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.css']
-})
+}) 
 export class AddQuestionComponent implements OnInit {
   public Editor:any = ClassicEditor;
   qId=0;

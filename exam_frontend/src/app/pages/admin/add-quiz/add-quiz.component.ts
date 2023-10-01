@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -29,7 +30,7 @@ quizData={
  }
 };
 
-  constructor(private _cat:CategoryService, private _snack:MatSnackBar, private _quiz:QuizService ){}
+  constructor(private _cat:CategoryService, private _snack:MatSnackBar, private _quiz:QuizService, private _route:Router ){}
 
   ngOnInit(): void {
    //as soon as the component is loaded, ngOnIntit() is called
@@ -72,12 +73,14 @@ quizData={
             category:{
              cid:'',
             }
-      }},
+      }
+      self._route.navigate(['/admin/quizzes']);
+    },
       error(err){
          Swal.fire('Error!',"Error while adding quiz",'error');
          console.log(err);
          
       }
-    })
+    }) 
   }
 }
