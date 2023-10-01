@@ -34,7 +34,10 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
-
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 
 
@@ -56,6 +59,9 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
+    ViewQuizQuestionsComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +81,8 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     MatGridListModule,
     MatSlideToggleModule,
     MatSelectModule,
+    CKEditorModule,
+    
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
