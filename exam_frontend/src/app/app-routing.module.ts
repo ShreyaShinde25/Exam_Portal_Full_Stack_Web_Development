@@ -20,6 +20,8 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
 import { UpdateProfileComponent } from './pages/profile/update-profile/update-profile.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 const routes: Routes = [
   {
@@ -93,8 +95,18 @@ const routes: Routes = [
       {  
         path:':catId',
         component:LoadQuizComponent,
-      }
+      },
+      {
+        path:'instructions/:qid',
+        component:InstructionsComponent,
+      },
+      
     ]
+  },
+  {
+    path:'start/:qid',
+    component:StartComponent,
+    canActivate:[NormalGuard],
   }
 ];
 

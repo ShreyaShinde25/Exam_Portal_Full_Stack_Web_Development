@@ -42,6 +42,9 @@ import { UpdateProfileComponent } from './pages/profile/update-profile/update-pr
 import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -70,6 +73,8 @@ import { UserHomeComponent } from './pages/user/user-home/user-home.component';
     SidebarUserComponent,
     LoadQuizComponent,
     UserHomeComponent,
+    InstructionsComponent,
+    StartComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +95,7 @@ import { UserHomeComponent } from './pages/user/user-home/user-home.component';
     MatSlideToggleModule,
     MatSelectModule,
     CKEditorModule,
+    MatRadioModule
     
   ],
   providers: [AuthInterceptorProviders],
