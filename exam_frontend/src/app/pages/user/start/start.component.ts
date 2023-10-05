@@ -17,9 +17,11 @@ export class StartComponent implements OnInit{
   marskGot:any=0;
   correctAnswers:any=0;
   attempted:any=0;
+  percent:any=0;
   isSubmit:any=false;
 
-  
+  timer:any=0;
+  total:any=0;
 
   constructor(private locationSt: LocationStrategy, private _route:ActivatedRoute, private _question:QuestionService){}
   
@@ -42,15 +44,24 @@ export class StartComponent implements OnInit{
     const self=this;
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe({
       next(data){
+     
+
+      // self.timer=self.questions;
+      // self.total=self.questions.length;
       //  console.log(data);
        self.questions= data;
+
+       self.timer=Object.keys(self.questions).length*2*60;
+       self.total=Object.keys(self.questions).length*2*60;
 
        self.questions.forEach((q:any)=>{
         q['givenAnswer']='';
       });
+
+      self.startTimer();
     
       //  console.log(self.questions);
-       
+     
      
       },
       error(err){
@@ -75,7 +86,39 @@ export class StartComponent implements OnInit{
       /* Read more about isConfirmed, isDenied below */
       if (e.isConfirmed) {
         //calculation
-        this.isSubmit=true;
+        this.evalQuiz();
+        
+        
+        
+
+      } 
+    })
+
+  }
+  
+  startTimer(){
+    let t=window.setInterval(()=>{
+
+    //code
+    if(this.timer <=0){
+      this.evalQuiz()
+      clearInterval(t);
+    } else{
+      this.timer--;
+    }
+    },1000)
+
+  }
+
+  getFormattedTime(){
+    let mm=Math.floor(this.timer/60)
+    let ss=this.timer-mm*60;
+    return `${mm} min: ${ss} sec`;
+  }
+ 
+
+  evalQuiz(){
+    this.isSubmit=true;
         this.questions.forEach((q:any)=>{
           if(q.givenAnswer==q.answer){
             this.correctAnswers++;
@@ -86,18 +129,10 @@ export class StartComponent implements OnInit{
             this.attempted++;
           }
         })
-
+        this.percent= (this.correctAnswers/this.questions.length)*100;
         console.log("Correct Answers: "+this.correctAnswers);
-        console.log("Marks Got: "+ (this.marskGot*100)/this.questions[0].quiz.maxMarks);
+        
+        console.log("Marks Got: "+ (this.correctAnswers*100)/this.questions.length);
         console.log("Attempted:"+ this.attempted);
-        
-        
-        
-
-      } 
-    })
-
   }
-  
-
 }

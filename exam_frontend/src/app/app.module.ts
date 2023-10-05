@@ -45,6 +45,7 @@ import { UserHomeComponent } from './pages/user/user-home/user-home.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartComponent } from './pages/user/start/start.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -95,7 +96,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSlideToggleModule,
     MatSelectModule,
     CKEditorModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [AuthInterceptorProviders],
