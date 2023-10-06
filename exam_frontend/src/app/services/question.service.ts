@@ -40,4 +40,9 @@ export class QuestionService {
     return this._http.get(`${baseUrl}/question/${quesId}`);
     
   }
+
+  //eval quiz
+  public evalQuiz(questions:any){
+    return this._http.post(`${baseUrl}/question/eval-quiz`,questions);
+  }
 }

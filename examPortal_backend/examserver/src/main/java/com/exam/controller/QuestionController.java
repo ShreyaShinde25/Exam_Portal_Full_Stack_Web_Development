@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @CrossOrigin("*")
@@ -76,6 +73,43 @@ public class QuestionController {
        this.questionService.deleteQuestion(quesId);
     }
 
+
+    //eval quiz
+    @PostMapping("/eval-quiz")
+    public ResponseEntity<?> evalQuiz(@RequestBody List<Question> questions){
+        System.out.println(questions);
+        double marksGot =0;
+        int correctAnswers=0;
+        int attempted=0;
+        int percent=0;
+        for(Question q:questions ){
+            //System.out.println(q.getGivenAnswers());
+            //single question
+            Question question=this.questionService.get(q.getQuesId());
+            System.out.println("Heyy"+q.getQuesId());
+
+            System.out.println("HARSHHH: "+question.getAnswer()+"-----"+q.getGivenAnswers());
+
+            if(q.getGivenAnswers()==null){
+                q.setGivenAnswers("");
+            }
+                if (question.getAnswer().trim().equals(q.getGivenAnswers().trim())) {
+                    //correct answer
+                    System.out.println("Heyy correct answer");
+                    correctAnswers++;
+                    double marksSingle= Double.parseDouble(questions.get(0).getQuiz().getMaxMarks())/questions.size();
+                    marksGot +=marksSingle;
+                }
+                if (q.getGivenAnswers() != null || !q.getGivenAnswers().trim().equals("")) {
+                    attempted++;
+                }
+
+        }
+
+        percent= (correctAnswers*100)/questions.size();
+        Map<String, Object> map= Map.of("marksGot",marksGot,"correctAnswers",correctAnswers,"attempted",attempted, "percent", percent);
+        return ResponseEntity.ok(map);
+    }
 
 
 

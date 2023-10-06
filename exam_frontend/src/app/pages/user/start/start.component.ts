@@ -14,14 +14,15 @@ export class StartComponent implements OnInit{
   qid:any;
   questions:any;
   
-  marskGot:any=0;
-  correctAnswers:any=0;
-  attempted:any=0;
-  percent:any=0;
+ 
   isSubmit:any=false;
 
   timer:any=0;
   total:any=0;
+  marskGot: any;
+  attempted: any;
+  correctAnswers: any;
+  percent:any;
 
   constructor(private locationSt: LocationStrategy, private _route:ActivatedRoute, private _question:QuestionService){}
   
@@ -48,15 +49,15 @@ export class StartComponent implements OnInit{
 
       // self.timer=self.questions;
       // self.total=self.questions.length;
-      //  console.log(data);
+       console.log(data);
        self.questions= data;
 
        self.timer=Object.keys(self.questions).length*2*60;
        self.total=Object.keys(self.questions).length*2*60;
 
-       self.questions.forEach((q:any)=>{
-        q['givenAnswer']='';
-      });
+      //  self.questions.forEach((q:any)=>{
+      //   q['givenAnswer']='';
+      // });
 
       self.startTimer();
     
@@ -76,6 +77,7 @@ export class StartComponent implements OnInit{
     this.marskGot=0;
     this.attempted=0;
     this.correctAnswers=0;
+    this.percent=0;
     Swal.fire({
       title: 'Do you want to submit the quiz?',
       // showDenyButton: true,
@@ -118,21 +120,38 @@ export class StartComponent implements OnInit{
  
 
   evalQuiz(){
-    this.isSubmit=true;
-        this.questions.forEach((q:any)=>{
-          if(q.givenAnswer==q.answer){
-            this.correctAnswers++;
-            let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
-            this.marskGot+=marksSingle;
-          }
-         if(q.givenAnswer!="" ){
-            this.attempted++;
-          }
-        })
-        this.percent= (this.correctAnswers/this.questions.length)*100;
-        console.log("Correct Answers: "+this.correctAnswers);
+    const self= this;
+    this._question.evalQuiz(this.questions).subscribe({
+      next(data:any){
+      console.log(data);
+      self.marskGot=data.marksGot;
+      self.attempted=data.attempted;
+      self.correctAnswers=data.correctAnswers;
+      self.percent=data.percent;
+      self.isSubmit=true;
+      },
+      error(err){
+       console.log(err);
+       
+      }
+    })
+    // this.isSubmit=true;
+
+    // call to server to check questions
+    //     this.questions.forEach((q:any)=>{
+    //       if(q.givenAnswer==q.answer){
+    //         this.correctAnswers++;
+    //         let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
+    //         this.marskGot+=marksSingle;
+    //       }
+    //      if(q.givenAnswer!="" ){
+    //         this.attempted++;
+    //       }
+    //     })
+    //     this.percent= (this.correctAnswers/this.questions.length)*100;
+    //     console.log("Correct Answers: "+this.correctAnswers);
         
-        console.log("Marks Got: "+ (this.correctAnswers*100)/this.questions.length);
-        console.log("Attempted:"+ this.attempted);
+    //     console.log("Marks Got: "+ (this.correctAnswers*100)/this.questions.length);
+    //     console.log("Attempted:"+ this.attempted);
   }
 }

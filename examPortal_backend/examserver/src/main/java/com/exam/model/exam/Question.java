@@ -23,6 +23,9 @@ public class Question {
 
     private String answer;
 
+    @Transient  //transient means this field will not be added in database
+    private String givenAnswers;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Quiz quiz;
 
@@ -99,5 +102,13 @@ public class Question {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
+    }
+
+    public String getGivenAnswers() {
+        return givenAnswers;
+    }
+
+    public void setGivenAnswers(String givenAnswers) {
+        this.givenAnswers = givenAnswers;
     }
 }

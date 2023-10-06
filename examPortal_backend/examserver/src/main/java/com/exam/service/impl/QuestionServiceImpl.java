@@ -48,4 +48,12 @@ public class QuestionServiceImpl implements QuestionService {
         this.questionRepository.delete(question);
 
     }
+
+    @Override
+    public Question get(Long questionId){
+        System.out.println("My name is Shreyaa");
+        System.out.println( this.questionRepository.getOne(questionId));
+
+        return this.questionRepository.getOne(questionId);
+    }
 }

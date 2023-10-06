@@ -8,4 +8,5 @@ import java.util.Set;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     Set<Question> findByQuiz(Quiz quiz);
+    Question getOne(Long quesId);
 }
