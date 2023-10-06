@@ -127,7 +127,7 @@ export class StartComponent implements OnInit{
       self.marskGot=data.marksGot;
       self.attempted=data.attempted;
       self.correctAnswers=data.correctAnswers;
-      self.percent=data.percent;
+      self.percent=Number(data.percent).toFixed(2);
       self.isSubmit=true;
       },
       error(err){
@@ -153,5 +153,9 @@ export class StartComponent implements OnInit{
         
     //     console.log("Marks Got: "+ (this.correctAnswers*100)/this.questions.length);
     //     console.log("Attempted:"+ this.attempted);
+  }
+
+  printPage(){
+    window.print();
   }
 }

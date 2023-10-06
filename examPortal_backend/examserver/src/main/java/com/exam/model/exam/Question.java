@@ -1,5 +1,8 @@
 package com.exam.model.exam;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +24,7 @@ public class Question {
 
     private String option4;
 
+    //JsonIgnore this field will be ignored and not sent to client side
     private String answer;
 
     @Transient  //transient means this field will not be added in database
@@ -88,10 +92,12 @@ public class Question {
         this.option4 = option4;
     }
 
+//    @JsonIgnore //when converting object to json (serialisation), we ignore the field
     public String getAnswer() {
         return answer;
     }
 
+//    @JsonProperty("answer") //converting json to object
     public void setAnswer(String answer) {
         this.answer = answer;
     }

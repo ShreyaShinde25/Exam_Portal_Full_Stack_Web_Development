@@ -4,7 +4,18 @@
        <div class="row">
         <div class="col-md-2">
             <!-- instructions -->
-            <h3>Instructions</h3>
+          <mat-card style="margin-top:70px ;">
+            <mat-card-header>
+            <mat-card-title >Instructions :-</mat-card-title>
+        </mat-card-header>
+            <mat-card-content >
+                <ul>
+                    <li>Do not refresh the page.</li>
+                    <li>Do not switch the tabs. </li>
+                    <li>Do not minimize the window.</li>
+                </ul>
+            </mat-card-content>
+          </mat-card>
         </div>
         <div class="col-md-8">
             <!-- questions -->
@@ -89,13 +100,15 @@
 
                 </mat-card-header>
                 <mat-card-content >
-                    <h1>Marks Got: {{percent}}%</h1>
-                    <h1>Correct Answers: {{correctAnswers}}</h1>
-                    <h1>Questions Attempted: {{attempted}}</h1>
+                    <h1>Marks Got: <b>{{percent}}%</b></h1>
+                    <h1>Correct Answers: <b>{{correctAnswers}}</b></h1>
+                    <h1>Questions Attempted: <b>{{attempted}}</b></h1>
                 </mat-card-content>
                 <mat-card-actions >
                     <div class=" container text-center">
-                    <button class="mt20 mb20" mat-raised-button color="primary">Print</button>
+                    <button (click)="printPage()" class="mt20 mb20 mr20" mat-raised-button color="primary">Print</button>
+                    <button (click)="printPage()" class="mt20 mb20" mat-raised-button color="primary">Home</button>
+
                 </div>
                 </mat-card-actions>
 

@@ -44,10 +44,13 @@ public class QuestionController {
 
        Quiz quiz= this.quizService.getQuiz(qid);
        Set<Question> questions= quiz.getQuestions();
-        List list= new ArrayList(questions);
+        List<Question> list= new ArrayList(questions);
         if(list.size()>Integer.parseInt(quiz.getNumberOfQuestions())){
             list=list.subList(0,Integer.parseInt(quiz.getNumberOfQuestions()+1));
         }
+        list.forEach((q)->{
+            q.setAnswer("");
+        });
         Collections.shuffle(list); //order of elements is shuffled
         return ResponseEntity.ok(list);
     }
@@ -81,6 +84,7 @@ public class QuestionController {
         double marksGot =0;
         int correctAnswers=0;
         int attempted=0;
+        int notattempted=0;
         int percent=0;
         for(Question q:questions ){
             //System.out.println(q.getGivenAnswers());
@@ -90,8 +94,12 @@ public class QuestionController {
 
             System.out.println("HARSHHH: "+question.getAnswer()+"-----"+q.getGivenAnswers());
 
+
             if(q.getGivenAnswers()==null){
                 q.setGivenAnswers("");
+            }
+            if (q.getGivenAnswers() == null || q.getGivenAnswers().equals("")) {
+                notattempted++;
             }
                 if (question.getAnswer().trim().equals(q.getGivenAnswers().trim())) {
                     //correct answer
@@ -100,12 +108,10 @@ public class QuestionController {
                     double marksSingle= Double.parseDouble(questions.get(0).getQuiz().getMaxMarks())/questions.size();
                     marksGot +=marksSingle;
                 }
-                if (q.getGivenAnswers() != null || !q.getGivenAnswers().trim().equals("")) {
-                    attempted++;
-                }
+
 
         }
-
+        attempted=questions.size()-notattempted;
         percent= (correctAnswers*100)/questions.size();
         Map<String, Object> map= Map.of("marksGot",marksGot,"correctAnswers",correctAnswers,"attempted",attempted, "percent", percent);
         return ResponseEntity.ok(map);
