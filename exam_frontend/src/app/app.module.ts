@@ -48,7 +48,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderModule,  NgxUiLoaderHttpModule  } from 'ngx-ui-loader';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgIf } from '@angular/common';
+import '@angular/localize/init';
 
 
 
@@ -104,6 +105,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     MatProgressSpinnerModule,
     NgxUiLoaderModule,
     NgbCarouselModule,
+    NgIf,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,
     }),

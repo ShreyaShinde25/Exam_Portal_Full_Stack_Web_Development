@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   else if(this.login.getUserRole()=="NORMAL")
   {  console.log("normal clicked");
   
-      this.router.navigate(['/user-dashboard/']);
+      this.router.navigate(['/user-dashboard/0']);
   }
 
   }

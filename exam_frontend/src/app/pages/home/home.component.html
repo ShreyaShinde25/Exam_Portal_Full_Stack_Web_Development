@@ -1,29 +1,42 @@
-<ngb-carousel >
+<ngb-carousel  *ngIf="images">
 	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
+		<div class="picsum-img-wrapper ngb-carousel">
 			<img src="../../../assets/landing_page_photo.png" alt="Random first slide" />
 		</div>
 		<div class="carousel-caption">
-			<h3>First slide label</h3>
-			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			<h2 class=" mt20">Welcome to QuizMate: Unleash Your Potential, One Quiz at a Time</h2>
+			<!-- <p>Are you ready to ace your exams, sharpen your skills, and elevate your knowledge to new heights? Welcome to QuizMate, the go-to destination for quiz enthusiasts, learners, and knowledge seekers like you.</p> -->
+		    <!-- <p> New User? <a href="/signup">Signup now!</a></p> -->
+			<button routerLink="/login"   mat-flat-button class="button">Let's get started</button>
 		</div>
 	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../../../assets/exam.png" alt="Random second slide" />
+	<!-- <ng-template ngbSlide>
+		<div class=" picsum-img-wrapper ngb-carousel">
+			<img src="../../../assets/2-test.png" alt="Random second slide" />
 		</div>
 		<div class="carousel-caption">
-			<h3>Second slide label</h3>
+			<h2 color="black">Second slide label</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</div>
-	</ng-template>
+		
+	</ng-template> -->
+    
 	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../../../assets/score.png" alt="Random third slide" />
+		<div style="background-image: url(../../../assets/color.jpg); background-size: cover; height: 775px;">
+		<div  class="image-caption-container">
+		  <div class="image-container">
+			<img src="../../../assets/2-test.png" alt="Random second slide" />
+		  </div>
+		  <div class="caption-container">
+			<h2 style="color: black; ">About</h2>
+			<div class="div_class">
+			<p>Are you ready to ace your exams, sharpen your skills, and elevate your knowledge to new heights? Welcome to QuizMate, the go-to destination for quiz enthusiasts, learners, and knowledge seekers like you. Whether you're a student preparing for a crucial exam, a professional looking to upskill, or simply someone curious to expand your horizons, QuizMate is your trusted partner on your journey towards success and personal growth.</p>
+			</div>
+			<div class="container text-center abc">
+			<p ><b>New User? <a href="/signup">Signp now!</a></b></p>
 		</div>
-		<div class="carousel-caption">
-			<h3>Third slide label</h3>
-			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		  </div>
 		</div>
-	</ng-template>
+	</div>
+	  </ng-template>
 </ngb-carousel>
