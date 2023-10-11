@@ -4,7 +4,7 @@ QuizMate is a robust full-stack web application developed using Java Spring Boot
 
 ## Features:
 
-1.RESTful CRUD APIs: The application features a comprehensive set of REST APIs for Create, Read, Update, and Delete (CRUD) operations, offering a flexible and efficient means of interacting with the system.
+1. RESTful CRUD APIs: The application features a comprehensive set of REST APIs for Create, Read, Update, and Delete (CRUD) operations, offering a flexible and efficient means of interacting with the system.
 
 2. JWT Authentication and Authorization: We've integrated JSON Web Token (JWT) authentication for secure user login and authorization, safeguarding user data and ensuring a safe environment for quizzes.
 
