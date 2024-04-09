@@ -33,7 +33,7 @@
     <mat-icon mat-list-icon class="mat-list-text">add</mat-icon>
     <span class="mat-list-text">Add Quiz</span>
   </button>
-  <button class="mat-list-item" routerLink="/admin/profile">
+  <button class="mat-list-item" (click)="logout()" routerLink="/admin/login">
     <mat-icon mat-list-icon class="mat-list-text">logout</mat-icon>
     <span class="mat-list-text">Logout</span>
   </button>

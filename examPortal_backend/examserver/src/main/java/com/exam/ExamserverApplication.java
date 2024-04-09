@@ -21,7 +21,7 @@ public class ExamserverApplication implements CommandLineRunner {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	public static void main(String[] args) {
-
+		System.out.println("Hello");
 		SpringApplication.run(ExamserverApplication.class, args);
 	}
 

@@ -9,9 +9,8 @@
                 <img class="profile-image" src="https://static.thenounproject.com/png/5034901-200.png" alt="">
                 <h1 class="mt20" style="font-family:Georgia, 'Times New Roman', Times, serif; text-transform: uppercase;">{{user.firstName}} {{user.lastName}}</h1>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-10 offset-md-1">
-                    <!-- table details -->
                     <table class="table text-center" >
                         <tr>
                             <td class="tbdata">Username</td>
@@ -45,7 +44,58 @@
 
                     </table>
                 </div>
+            </div> -->
+
+    <!-- Main -->
+    <div class="main">
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Username</td>
+                            <td>:</td>
+                            <td>{{user.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>User Id</td>
+                            <td>:</td>
+                            <td>Exam{{user.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td>:</td>
+                            <td>{{user.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>:</td>
+                            <td>{{user.authorities[0].authority}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td>{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </div>
+ 
+
+
+
+          
+
+
+
         </div>
        </div>
 
@@ -57,3 +107,4 @@
      </mat-card-actions>
     
 </mat-card>
+
